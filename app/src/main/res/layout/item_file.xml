@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="com.mywork.myhappyreader.viewModel.FileListViewModel.FileListHolder" />
+        <import type="com.mywork.myhappyreader.viewModel.FileListViewModel.FileListItemClick" />
+        <variable
+            name="file"
+            type="java.io.File" />
+        <variable
+            name="listener"
+            type="FileListItemClick" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/itemLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:onClick="@{()->listener.onClick(file)}"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="16dp"
+            app:image="@{@drawable/ic_launcher}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@{file.name, default=名称}"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</layout>
